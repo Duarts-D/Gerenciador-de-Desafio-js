@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<header>
+    <h1 class="titulo">Ingles</h1>
+</header>
+<body>
+    <section class="section">
+        <div class="container_1">
+            <div class="container_1_qtd">
+                <p class="text_center">Qtd de acerto seguidos:</p>
+                <span id="quantidade_acerto_seguidos" class="span_section">50</span>
+            </div>
+            <div class="container_1_qtd">
+                <p class="text_center">Recorde:</p>
+                <span id="Recorde" class="span_section">99999</span>
+            </div>
+            <div class="container_1_qtd">
+                <p class="text_center">Acertos:</p>
+                <span id="Acertos" class="span_section">10</span>
+            </div>
+        </div>
+        <div class="container_2">
+            <div class="container_2_bloco_1">
+                <h1 class="text_center">Adicionar nova palavra</h1>
+                <input type="text" name="" id="">
+                :
+                <input type="text">
+                <button type="button" class="container_2_bloco_1_button_salvar">Salvar</button>
+            </div>
+            <div class="div_input_checkbox">
+                <p class="todos" id="my_dic_all">Todas</p>
+                <input type="checkbox" class="input_checkbox" id='button_check'>
+                <label for="button_check" class="div_input_caixa"></label>
+                <p id="my_dic">Somente minhas palavras</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+    <div class="div_1_texto">
+        <span id="ingles"></span>
+    </div>
+    <div class="div_2_texto">
+        <span id="pt_br"></span>
+        <img src="./img/eyes_is_closed.png" alt="ver" id="img">
+    </div>
+    <div class="div_input">
+        <input class="input" placeholder="Palavra" type="text" id="input"></input>
+        <button type="button" id="resetar">Resetar</button>
+    </div>
+
+    <div class="acerto_div">
+        <span id="acerto" class="acerto"></span>
+    </div>
+    </main>
+    <footer class="footer">
+        <h2>Hora de Praticar</h2>
+        <p>Duarte.dev@gmail.com</p>
+    </footer>
+    <script src="js/ingles.js"></script>
+    <script src="js/dicionario.js"></script>
+
+
+</body>
+</html>

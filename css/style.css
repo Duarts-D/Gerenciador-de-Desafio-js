@@ -1,0 +1,252 @@
+body{
+    background-color: black;
+    /* min-height: 95vh; */
+    display: flex;
+    /* justify-content: center;  */
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+header{
+    margin: 2% 0 0 0 ;
+}
+
+
+main{
+    display: flex;
+    /* border: 2px solid blue; */
+    color: black;
+    height: 350px;
+    flex-wrap: wrap;
+    gap: 0;
+    width: 50%;
+    box-shadow: 0px -7px 13px whitesmoke;
+    font-size: 36px;
+
+}
+
+.titulo{
+    font-size: 36px;
+    opacity: 0.5;
+}
+
+.titulo:hover{
+    opacity: 1;
+}
+
+.text_center{
+    text-align: center;
+}
+
+/* start container_1*/
+.container_1{
+    width: 30%;
+    /* opacity: 0.5; */
+}
+.container_1_qtd{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 2px solid whitesmoke; */
+    box-shadow: 0  0 1px white;
+
+    padding: 5px;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.container_1_qtd:hover{
+    opacity: 1;
+}
+
+/* end container_1*/
+.container_2{
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0  0 1px white;
+}
+
+.container_2:hover{
+    box-shadow: 0px 0px 25px white;
+    opacity: 1;
+    border: none;
+}
+
+.container_2_bloco_1{
+    opacity: 0.5;
+
+}
+
+.container_2_bloco_1:hover{
+    opacity: 1;
+}
+
+.container_2_bloco_1_button_salvar{
+    color: red;
+    border-radius: 16px;
+    box-shadow: 0 0 5px red;
+    text-shadow: 1px 1px black;
+}
+
+.container_2_bloco_1_button_salvar:hover{
+    box-shadow: 0 0 15px red;
+    background-color: rgb(238, 118, 118);
+}
+
+.div_input_checkbox{
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    align-items: center;
+    padding: 5px;
+    margin-top: 5px;
+    opacity: 0.5;
+}
+
+.div_input_checkbox:hover{
+    opacity: 1;
+}
+
+
+.input_checkbox{
+    display: none;
+}
+
+.div_input_caixa{
+    display: inline-flex;
+    width: auto;
+    height: 23px;
+    padding-left: 30px;
+    /* background-color: red; */
+    border-radius: 30px;
+    padding: 2px;
+}
+
+
+.div_input_caixa::before{
+    content: '';
+    width: 50px;
+    height: 100%;
+    background-image: url(../img/circulo_start.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    transition: background-position 0.5s ease;
+    background-color: red;
+    border-radius: 30px;
+
+
+}
+
+.input_checkbox:checked + .div_input_caixa::before{
+    background-position: right;
+    background-image: url(../img/circuslo_end.png);
+    background-color: cornsilk;
+    /* border-radius: 30px; */
+}
+
+
+
+  
+
+/* start container_2*/
+
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5% 5% 5%;
+    width: 90%;
+    font-size: 24px;
+}
+
+
+
+.div_1_texto{
+    display: flex;
+    background-color: cornsilk;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 200px;
+}
+
+.div_2_texto{
+    display: flex;
+    background-color: rgb(11, 131, 81);
+    align-items: center;
+    width: 50%;
+    height: 200px;
+    /* justify-content: space-evenly; */
+}
+
+.div_2_texto span{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+
+
+img{
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.div_input{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.input{
+    /* width: 100%; */
+    height: 30px;
+    border: 15px solid black;
+    text-align: center;
+    font-size: 24px;
+    outline: none;
+    color: red;
+}
+
+.input::placeholder{
+    color: red;
+    font-size: 24px;
+    text-align: center;
+    outline: none;
+
+}
+
+.acerto{
+    color: white;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    height: auto;
+}
+.acerto_div{
+    width: 100%;
+    display: flex;
+    height: 56px;
+    border-top: 2px solid white;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+
+.footer{
+    text-align: center;
+    margin: 0 30% 0 30%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px -5px 10px whitesmoke;
+    padding: 5px;
+}
