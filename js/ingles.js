@@ -6,6 +6,7 @@ const dicionario = {'day':'dia', 'night':'noite', 'afternoon':'tarde', 'morning'
  'hers':'dela', 'he':'ele', 'her':'ela', 'them':'eles', 'me':'eu', 'my':'meu', 'with':'com', 'where':'onde', 'how much':'quanto', 'I want':'eu quero',
   'we want':'nos queremos', 'how much?':'quanto?', 'seriously':'serio', 'parents':'pais', 'brother ':'irmão', 'sister':'irmã', 'grandmother':'avó',
    'grandfather':'avô', 'aunt':'tia', 'cousin':'primo', 'uncle':'tio', 'good':'bom', 'bad':'ruim', 'terrible':'terrivel', 'horrible':'horrivel', 'reading':'lendo', 'writing':'escrevendo', 'running':'correndo', 'playing':'brincando'}
+
 const spaningles = document.getElementById('ingles')
 const spanpt = document.getElementById('pt_br')
 const input = document.getElementById('input')
