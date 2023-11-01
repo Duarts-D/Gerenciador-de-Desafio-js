@@ -2,6 +2,14 @@ const my_list_all = document.getElementById('my_dic_all')
 const my_list = document.getElementById('my_dic')
 const checkbox = document.getElementById('button_check')
 const myLisOrAllList = JSON.parse(localStorage.getItem('dicionario')) 
+const buttonAlert = document.getElementById('button_alert_dicionario')
+
+
+buttonAlert.addEventListener('click',()=>{
+    const buttonRemove = buttonAlert.parentNode.parentNode
+    buttonRemove.remove()
+    console.log(buttonAlert.parentNode.parentNode)
+})
 
 if (myLisOrAllList){
     checkbox.checked = true
