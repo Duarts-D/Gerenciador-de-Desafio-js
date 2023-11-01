@@ -28,21 +28,33 @@
         </div>
         <div class="container_2">
             <div class="container_2_bloco_1">
-                <h1 class="text_center">Adicionar nova palavra</h1>
-                <input type="text" name="" id="ingles_input">
-                :
-                <input type="text" name="" id="pt_input">
-                <button type="button" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
-            </div>
+                <div>
+                    <h1 class="text_center">Adicionar nova palavra</h1>
+                    <form method="post" class="form" autocomplete="off">
+                        <label for="" class="form_texto_ingles">Ingles</label>
+                        <input type="text" name="ingles" id="ingles_input" class="form_input_ingles" required>
+                        <span class="error_input_ingles"></span>
+                        <p class="ponto">:</p>
+                        <label for="pt_input" class="form_texto_pt">Portugues</label>
+                        <input type="text" name="pt" id="pt_input" class="form_input_pt" required>
+                        <span class="error_input_pt"></span>
+                        <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
+                    </form>
+                </div>
+ 
+            <hr>            
             <div class="div_input_checkbox">
                 <p class="todos" id="my_dic_all">Todas</p>
                 <input type="checkbox" class="input_checkbox" id='button_check'>
                 <label for="button_check" class="div_input_caixa"></label>
                 <p id="my_dic">Somente minhas palavras</p>
             </div>
+            <fieldset>
+                <legend><button type="button" id="button_alert_dicionario">X</button></legend>
+                <p>Oque vamos praticar?</p>
+            </fieldset>
         </div>
     </section>
-
     <main>
     <div class="div_1_texto">
         <span id="ingles"></span>
@@ -66,6 +78,8 @@
     </footer>
     <script src="js/ingles.js"></script>
     <script src="js/dicionario.js"></script>
+    <script src="js/addDicionario.js"></script>
+
 
 
 
