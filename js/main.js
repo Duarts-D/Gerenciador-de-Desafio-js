@@ -118,12 +118,17 @@ function textEyeMostraSpan(){
 }
 
 export default function randomIngles(){
-    disc_userOrPadrao = JSON.parse(localStorage.getItem('dicionario'))
-    dicionario_2 = JSON.parse(localStorage.getItem('my_dicionario'))
+    disc_userOrPadrao = JSON.parse(localStorage.getItem('dicionario')) || false
+    dicionario_2 = JSON.parse(localStorage.getItem('my_dicionario')) || {}
     chave_2 = Object.keys(dicionario_2)
     dicionarioTodos()
     if (disc_userOrPadrao){
-        randomDicionario(dicionario_2)
+        if(Object.keys(dicionario_2).length > 0 ){
+            randomDicionario(dicionario_2)
+        }else{
+            spaningles.textContent = 'Nehuma palavra'
+            spanpt.textContent = 'Adicione ou mude para todas'
+        }
     }else{
         randomDicionario(dicionarioAll)
     }

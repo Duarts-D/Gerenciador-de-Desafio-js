@@ -1,5 +1,8 @@
+import randomIngles from "./main.js";
+
+
 const tabela = document.getElementById('tabela_remover')
-let my_dicionario = JSON.parse(localStorage.getItem('my_dicionario')) || {}
+let  my_dicionario = {}
 const button_on_table = document.getElementById('table_button_ativar')
 const button_off_table = document.getElementById('table_off')
 const container_table = document.getElementById('container_table')
@@ -10,7 +13,9 @@ let buttonExcluir
 
 
 button_on_table.addEventListener('click',()=>{
-    console.log('lique')
+    tabela.innerHTML = ''
+    ListaDePalavras()
+    button_on_table.style.display = 'none'
     container_table.style.display = 'block'
     mainElement.style.opacity = '0.5'
 })
@@ -41,16 +46,17 @@ function buscarTabela(valor){
 }
 
 
-
-
 table_off.addEventListener('click',()=>{
     container_table.style.display = 'none'
     mainElement.style.opacity = '1'
+    button_on_table.style.display = 'block'
+    randomIngles()
 })
 
 
 
 function ListaDePalavras(){
+    my_dicionario = JSON.parse(localStorage.getItem('my_dicionario')) || {}
     Object.entries(my_dicionario).forEach(function(valor){
         const key = valor[0]
         const value = valor[1]
@@ -58,9 +64,8 @@ function ListaDePalavras(){
         buttonExcluir = document.querySelectorAll('#excluir')
         tabela_search = document.querySelectorAll('tr')
     })
+    criarCelulas()
 }
-
-ListaDePalavras()
 
 function createElement(key,valor){
     const elemento = document.createElement('tr')
@@ -69,7 +74,7 @@ function createElement(key,valor){
 }
 
 function criarCelulas(){
-    if(buttonExcluir){
+    if(Object.keys(my_dicionario).length > 0){
         buttonExcluir.forEach(evento=>{
          evento.addEventListener('click',()=>{
             removePalavraChave(evento)
@@ -102,7 +107,6 @@ function salvarDicionario(){
     localStorage.setItem('my_dicionario', JSON.stringify(my_dicionario))
 }
 
-criarCelulas()
 
 function removerTableSearch(tr){
     tabela_search.forEach(e=>{

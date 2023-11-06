@@ -1,3 +1,5 @@
+import randomIngles from "./main.js";
+
 const buttonSalvar = document.getElementById('button_salvar')
 const inputIngles = document.getElementById('ingles_input')
 const inputPt = document.getElementById('pt_input')
@@ -16,10 +18,17 @@ buttonSalvar.addEventListener('click',(e)=>{
     const validity_ingles = validityCampo(inputIngles)
     const validity_pt = validityCampo(inputPt)
     if(validity_ingles && validity_pt){
-        console.log('dentro')
         const valorIngles = inputIngles.value
         const valorPt = inputPt.value
-        addDicionarioLocalStorage(valorIngles,valorPt)
+        const ok = addDicionarioLocalStorage(valorIngles,valorPt)
+        if (ok){
+            inputIngles.value = ''
+            inputPt.value = ''
+            const salvo = document.getElementById('sucesso')
+            setTimeout(function(){salvo.textContent = ''},5000)
+            salvo.textContent = 'Salvo com sucesso'
+            randomIngles()
+        }
     }
 })
 
@@ -62,6 +71,7 @@ function addDicionarioLocalStorage(v_ingles,v_pt){
     const my_dicionario = JSON.parse(localStorage.getItem('my_dicionario')) || {}
     my_dicionario[v_ingles] = v_pt
     localStorage.setItem('my_dicionario', JSON.stringify(my_dicionario))
+    return true
 }
 
 function removeError(){

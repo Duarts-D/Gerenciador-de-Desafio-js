@@ -10,7 +10,6 @@ const buttonAlert = document.getElementById('button_alert_dicionario')
 buttonAlert.addEventListener('click',()=>{
     const buttonRemove = buttonAlert.parentNode.parentNode
     buttonRemove.remove()
-    console.log(buttonAlert.parentNode.parentNode)
 })
 
 if (myLisOrAllList){
