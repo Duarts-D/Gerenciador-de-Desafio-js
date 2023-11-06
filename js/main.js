@@ -63,7 +63,7 @@ input.addEventListener('keydown',(event)=>{
             resetAcerto()
             palavraSecreta = false
         }else{
-        if (valor == dicionario_ativo[1]){
+        if (valor.toLowerCase() == dicionario_ativo[1].toLowerCase()){
             spanpt.textContent = dicionario_ativo[1]
             Palvraacertada.style.color = 'white'
             Palvraacertada.textContent = `${dicionario_ativo[0]} - ${dicionario_ativo[1]}`
@@ -154,9 +154,10 @@ function resetAcerto(){
     randomIngles()
     Palvraacertada.textContent = ''
     input.value = ''
-    eyeClosed(img)}
+    eyeClosed(img)
+    palavraSecreta = false
 
-
+}
 
 function randomDicionario(dic){
     if (disc_userOrPadrao){
