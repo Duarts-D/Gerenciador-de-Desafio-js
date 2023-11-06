@@ -42,17 +42,15 @@ main{
 /* start container_1*/
 .container_1{
     width: 30%;
-    /* opacity: 0.5; */
 }
+
 .container_1_qtd{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    /* border: 2px solid whitesmoke; */
     box-shadow: 0  0 1px white;
-
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     border-radius: 10px;
     opacity: 0.5;
 }
@@ -62,39 +60,35 @@ main{
 }
 
 /* end container_1*/
+
+/* start coontainer_2 */
 .container_2{
     border: none;
     border-radius: 10px;
     padding: 5px;
     box-shadow: 0  0 1px white;
+    position: relative;
 }
 
 .container_2:hover{
     box-shadow: 0px 0px 25px white;
-    opacity: 1;
+    /* opacity: 1; */
     border: none;
 }
 
-.container_2_bloco_1{
+.container_2_bloco_1 > div {
     opacity: 0.5;
 
 }
 
+.container_2_bloco_1 > div:hover{
+    opacity: 1;
+}
 .container_2_bloco_1:hover{
     opacity: 1;
 }
 
-.container_2_bloco_1_button_salvar{
-    color: red;
-    border-radius: 16px;
-    box-shadow: 0 0 5px red;
-    text-shadow: 1px 1px black;
-}
 
-.container_2_bloco_1_button_salvar:hover{
-    box-shadow: 0 0 15px red;
-    background-color: rgb(238, 118, 118);
-}
 
 .div_input_checkbox{
     display: flex;
@@ -149,11 +143,141 @@ main{
 }
 
 
+/* end container_2*/
 
-  
 
-/* start container_2*/
+/* start formulario */
+ .form{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 40% 5% 5% 40%;
+    grid-template-rows: auto auto auto auto;
+    text-align: center;
+    gap: 5px;
+}
 
+.form_texto_ingles{
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.form_input_ingles{
+    grid-row: 2;
+    grid-column: 1/2;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.form_input_ingles:focus{
+    border: none;
+    outline-color: red;
+}
+
+.form_texto_pt{
+    grid-row: 1;
+    grid-column: 3/5;
+
+}
+
+.form_input_pt{
+    grid-row: 2;
+    grid-column: 4/5;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.form_input_pt:focus{
+    outline-color: red;
+    border:none
+}
+
+.form_input_pt:focus + .form > .form_texto_ingles{
+    color: red;
+}
+
+
+.container_2_bloco_1_button_salvar{
+    width: 50%;
+    margin-left: 50%;
+    color: red;
+    border-radius: 16px;
+    box-shadow: 0 0 5px red;
+    text-shadow: 1px 1px black;
+    grid-row: 4;
+    grid-column: 4/5;
+}
+
+.container_2_bloco_1_button_salvar:hover{
+    box-shadow: 0 0 15px red;
+    background-color: rgb(238, 118, 118);
+}
+
+.ponto{
+    text-align: center;
+    grid-column: 2/4;
+}
+
+.error_input_ingles{
+    grid-row:3;
+    grid-template-columns: 1/2;
+    font-size: 16px;
+    color: red;
+    
+}
+
+.error_input_pt{
+    font-size: 16px;
+    grid-row: 3;
+    grid-column:  4/5;
+    color: red;
+}
+
+.salvo_com_sucesso{
+    color: yellow;
+    grid-column: 1/5;
+    grid-row: 4;
+
+}
+/* end formulario */
+
+/* start filedset */
+
+fieldset{
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    color: red;
+    width: auto;
+    font-size: 20px;
+    border-width: initial;
+    border-style: solid;
+    border-color: red;
+    border-image: initial;
+    border-radius: 16px;
+    transform: rotate(25deg);
+}
+
+fieldset button{
+    color: red;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0px 0px 5px red;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+fieldset legend{
+    text-align: right;
+    margin-right: 15px;
+}
+
+fieldset p{
+    padding: 0 5px 10px 5px 
+}
+
+
+/* end aside*/
 
 .section{
     display: flex;
@@ -172,6 +296,7 @@ main{
     align-items: center;
     width: 50%;
     height: 200px;
+    text-transform: capitalize;
 }
 
 .div_2_texto{
@@ -180,7 +305,7 @@ main{
     align-items: center;
     width: 50%;
     height: 200px;
-    /* justify-content: space-evenly; */
+    text-transform: capitalize;
 }
 
 .div_2_texto span{
@@ -238,15 +363,227 @@ img{
     height: 56px;
     border-top: 2px solid white;
     align-items: center;
+    text-transform: capitalize;
     /* flex-direction: column; */
 }
 
+.button_resetar{
+    background-color: aliceblue;
+    color: black;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 0 5px red;
+}
 
 .footer{
     text-align: center;
     margin: 0 30% 0 30%;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     box-shadow: 0px -5px 10px whitesmoke;
     padding: 5px;
+}
+
+/* start table remover*/
+
+::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+    }
+    
+    /* Estiliza o "thumb" (a parte arrastável da barra de rolagem) */
+    ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 0, 0.692); /* Cor de fundo do "thumb" */
+    border-top-right-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+        background-color: red;
+    }
+    /* Estiliza a barra de rolagem track (trilha) */
+    ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Cor de fundo da trilha da barra de rolagem */
+    border-top-right-radius: 10px;
+    }
+
+
+.tabela_fiedset{
+    transform: rotate(0deg);
+    top: 0;
+    left: unset;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 50%;
+    max-height: 90vh;
+    overflow-y: hidden;
+    display: none;
+}
+
+.tabela_fiedset legend{
+    text-align: center;
+    padding: 0 5px 0 5px;
+
+}
+
+table, th, td {
+    border: 1px solid red;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+tr{
+    position: relative;
+}
+.tabela_remover{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.tabela_titulo{
+    font-weight: 700;
+    font-style: italic;
+    font-size: 24px;
+    background-color: black
+}
+
+tr:hover{
+    background-color: black;
+
+}
+
+.tabela_input_busca{
+    text-align: center;
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 2px;
+}
+
+
+.tabela_input_busca:focus{
+    outline: 2px solid red;
+    font-size: 16px;
+
+}
+
+.tabela_input_busca{
+    background-image: url(/img/icon_search_table.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 30%;
+}
+
+#excluir:hover{
+    font-weight: 700;
+    box-shadow: 0px 0px 25px white;
+    text-shadow: 0px 0px white;
+}
+
+.table_vazia {
+    width: auto;
+    text-align: center;
+}
+caption{
+    text-align: right;
+    background-color: black;
+}
+
+caption button{
+    background-color: white;
+    box-shadow: 0px 0px 15px yellow;
+}
+
+caption button:hover{
+   background-color: red;
+   color: black;
+}
+
+/* end table remover*/
+
+.table_butto_ativar button{
+    position: fixed;
+    top: 20%;
+    right: -1%;
+    color: red;
+    font-size: 24px;
+    transform: rotate(90deg);
+    outline: 2px solid red;
+    padding: 5px;
+    border-radius: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.table_butto_ativar button:hover{
+    opacity: 1;
+}
+
+@media screen and (min-width: 300px)  and (max-width: 1024px){
+    .section{
+        font-size: unset;
+        width: 96%;
+        margin: 2% 2% 0 2%;
+        flex-direction: column;
+    }
+
+    .container_1_qtd{
+        width: auto;
+        opacity: 0.7;
+    }
+    .container_1{
+        width: 100%;
+    }
+    .container_2{
+        width: auto;
+        margin-top: 2%;
+    }
+    main{
+        margin-top: 15%;
+        width: 100%;
+        box-shadow: 0px 0px 8px white;
+    }
+    fieldset{
+        font-size: 16px;
+    }
+
+    .div_1_texto{
+        font-size: 24px;
+    }
+    .div_2_texto{
+        font-size: 24px;
+    }
+    .input{
+        font-size: 16px;
+        height: auto;
+        border: none;
+        margin-right: 10px;
+    }
+    .input::placeholder{
+        font-size: 16px;
+    }
+    .button_resetar{
+        font-size: 16px;
+    }
+    .acerto_div{
+        font-size: 20px;
+    }
+    #table_button_ativar{
+        top: 1%;
+        right: 2%;
+        font-size: 16px;
+        transform: rotate(0deg);
+    }
+
+    .tabela_fiedset{
+        width: 96%;
+        z-index: 10;
+
+    }
+}
+
+@media screen and (min-width: 1025px)  and (max-width: 2000px){
+    .footer{position: fixed;}
 }
