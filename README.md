@@ -2,6 +2,9 @@
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/LICENSE)
 
+# Pagina
+https://duarts-d.github.io/Palavra-Secretas-js/
+
 # Sobre o projeto
 O projeto foi feito utilizando as tecnologias JavaScript, css e html 5.
 
