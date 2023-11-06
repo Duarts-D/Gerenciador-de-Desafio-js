@@ -14,17 +14,18 @@
     <section class="section">
         <div class="container_1">
             <div class="container_1_qtd">
+                <p class="text_center">Acertos:</p>
+                <span id="Acertos" class="span_section">0</span>
+            </div>
+            <div class="container_1_qtd">
                 <p class="text_center">Qtd de acerto seguidos:</p>
-                <span id="quantidade_acerto_seguidos" class="span_section">50</span>
+                <span id="quantidade_acerto_seguidos" class="span_section">0</span>
             </div>
             <div class="container_1_qtd">
                 <p class="text_center">Recorde:</p>
-                <span id="Recorde" class="span_section">99999</span>
+                <span id="Recorde" class="span_section"></span>
             </div>
-            <div class="container_1_qtd">
-                <p class="text_center">Acertos:</p>
-                <span id="Acertos" class="span_section">10</span>
-            </div>
+
         </div>
         <div class="container_2">
             <div class="container_2_bloco_1">
@@ -65,7 +66,7 @@
     </div>
     <div class="div_input">
         <input class="input" placeholder="Palavra" type="text" id="input"></input>
-        <button type="button" id="resetar">Resetar</button>
+        <button type="button" id="resetar" class="button_resetar">Resetar</button>
     </div>
 
     <div class="acerto_div">
@@ -88,11 +89,6 @@
             </tr>
         </thead>
         <tbody id="tabela_remover">         
-             <tr>
-                <td class="tabela_titulo_hover" id="table_search">first</td>
-                <td class="tabela_titulo_hover" id="table_search">last</td>
-                <td> <button id="excluir">Excluir</button></td>
-            </tr>
         </tbody>
         </table>
     </fieldset>    
@@ -105,8 +101,8 @@
         <h2>Hora de Praticar</h2>
         <p>Duarte.dev@gmail.com</p>
     </footer>
-    <script src="js/ingles.js"></script>
-    <script src="js/dicionario.js"></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/dicionario.js" type="module"></script>
     <script src="js/addDicionario.js"></script>
     <script src="js/removDicionario.js" ></script>
 

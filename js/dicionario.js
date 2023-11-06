@@ -1,3 +1,5 @@
+import randomIngles from "./main.js";
+
 const my_list_all = document.getElementById('my_dic_all')
 const my_list = document.getElementById('my_dic')
 const checkbox = document.getElementById('button_check')
@@ -18,6 +20,7 @@ if (myLisOrAllList){
 checkbox.addEventListener('change',()=>{
     const dicionario = checkoutinput(checkbox)
     localStorage.setItem('dicionario', JSON.stringify(dicionario))
+    randomIngles()
 })
 
 

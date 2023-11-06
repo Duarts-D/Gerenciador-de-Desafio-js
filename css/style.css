@@ -42,17 +42,15 @@ main{
 /* start container_1*/
 .container_1{
     width: 30%;
-    /* opacity: 0.5; */
 }
+
 .container_1_qtd{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    /* border: 2px solid whitesmoke; */
     box-shadow: 0  0 1px white;
-
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     border-radius: 10px;
     opacity: 0.5;
 }
@@ -360,6 +358,13 @@ img{
     /* flex-direction: column; */
 }
 
+.button_resetar{
+    background-color: aliceblue;
+    color: black;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 0 5px red;
+}
 
 .footer{
     text-align: center;
