@@ -232,6 +232,13 @@ main{
     grid-column:  4/5;
     color: red;
 }
+
+.salvo_com_sucesso{
+    color: yellow;
+    grid-column: 1/5;
+    grid-row: 4;
+
+}
 /* end formulario */
 
 /* start filedset */
@@ -356,6 +363,7 @@ img{
     height: 56px;
     border-top: 2px solid white;
     align-items: center;
+    text-transform: capitalize;
     /* flex-direction: column; */
 }
 
@@ -370,7 +378,7 @@ img{
 .footer{
     text-align: center;
     margin: 0 30% 0 30%;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     box-shadow: 0px -5px 10px whitesmoke;
     padding: 5px;
@@ -511,4 +519,71 @@ caption button:hover{
 
 .table_butto_ativar button:hover{
     opacity: 1;
+}
+
+@media screen and (min-width: 300px)  and (max-width: 1024px){
+    .section{
+        font-size: unset;
+        width: 96%;
+        margin: 2% 2% 0 2%;
+        flex-direction: column;
+    }
+
+    .container_1_qtd{
+        width: auto;
+        opacity: 0.7;
+    }
+    .container_1{
+        width: 100%;
+    }
+    .container_2{
+        width: auto;
+        margin-top: 2%;
+    }
+    main{
+        margin-top: 15%;
+        width: 100%;
+        box-shadow: 0px 0px 8px white;
+    }
+    fieldset{
+        font-size: 16px;
+    }
+
+    .div_1_texto{
+        font-size: 24px;
+    }
+    .div_2_texto{
+        font-size: 24px;
+    }
+    .input{
+        font-size: 16px;
+        height: auto;
+        border: none;
+        margin-right: 10px;
+    }
+    .input::placeholder{
+        font-size: 16px;
+    }
+    .button_resetar{
+        font-size: 16px;
+    }
+    .acerto_div{
+        font-size: 20px;
+    }
+    #table_button_ativar{
+        top: 1%;
+        right: 2%;
+        font-size: 16px;
+        transform: rotate(0deg);
+    }
+
+    .tabela_fiedset{
+        width: 96%;
+        z-index: 10;
+
+    }
+}
+
+@media screen and (min-width: 1025px)  and (max-width: 2000px){
+    .footer{position: fixed;}
 }
