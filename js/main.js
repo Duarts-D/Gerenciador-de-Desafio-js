@@ -56,14 +56,14 @@ function controleAcertou(){
 
 
 input.addEventListener('keydown',(event)=>{
-    if (event.key == "Enter"){
+    if (event.key === "Enter"){
         const valor = event.target.value
         if (palavraSecreta){
             event.target.value = ''
             resetAcerto()
             palavraSecreta = false
         }else{
-        if (valor.toLowerCase() == dicionario_ativo[1].toLowerCase()){
+        if (valor.toLowerCase() === dicionario_ativo[1].toLowerCase()){
             spanpt.textContent = dicionario_ativo[1]
             Palvraacertada.style.color = 'white'
             Palvraacertada.textContent = `${dicionario_ativo[0]} - ${dicionario_ativo[1]}`
@@ -87,7 +87,7 @@ function dicionarioTodos(){
 }
 
 img.addEventListener('click',function (e){
-    if (eyes == false){
+    if (eyes === false){
         eyeOpen(e)
     }else{
         eyeClosed(e)

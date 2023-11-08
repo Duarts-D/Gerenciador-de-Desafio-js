@@ -52,13 +52,13 @@ function validityCampo(campo){
     const validity = campo.validity.valueMissing
     const name = campo.name
     if(validity){
-        if(name== 'ingles'){
+        if(name === 'ingles'){
             error_input_ingles.textContent = 'Preenchar o campo'
         }else{
             error_input_pt.textContent = 'Preenchar o campo'
         }
     }else{
-        if(name == 'ingles'){
+        if(name === 'ingles'){
             error_input_ingles.textContent = ''
         }else{
             error_input_pt.textContent = ''
