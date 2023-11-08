@@ -3,8 +3,8 @@ import randomIngles from "./main.js";
 
 const tabela = document.getElementById('tabela_remover')
 let  my_dicionario = {}
-const button_on_table = document.getElementById('table_button_ativar')
-const button_off_table = document.getElementById('table_off')
+const button_turn_on_table = document.getElementById('table_button_ativar')
+const button_turn_off_table = document.getElementById('table_off')
 const container_table = document.getElementById('container_table')
 const buscar = document.getElementById('search')
 const mainElement = document.querySelector('main')
@@ -12,10 +12,10 @@ let tabela_search
 let buttonExcluir
 
 
-button_on_table.addEventListener('click',()=>{
+button_turn_on_table.addEventListener('click',()=>{
     tabela.innerHTML = ''
     ListaDePalavras()
-    button_on_table.style.display = 'none'
+    button_turn_on_table.style.display = 'none'
     container_table.style.display = 'block'
     mainElement.style.opacity = '0.5'
 })
@@ -30,7 +30,7 @@ function buscarTabela(valor){
     tabela.innerHTML = ''
     const buscar = valor.toLowerCase()
     tabela_search.forEach((e)=>{
-        if(e.rowIndex != 0 ){
+        if(e.rowIndex !== 0 ){
             const celulas = e.cells
             const celula_1 = celulas[0].textContent.toLowerCase()
             const celula_2 = celulas[1].textContent.toLowerCase()
@@ -40,16 +40,16 @@ function buscarTabela(valor){
         }
     })
     const result_tabela_search = document.querySelectorAll('tr')
-    if(result_tabela_search.length == 1){
+    if(result_tabela_search.length === 1){
         tabelaVazia()
     }
 }
 
 
-table_off.addEventListener('click',()=>{
+button_turn_off_table.addEventListener('click',()=>{
     container_table.style.display = 'none'
     mainElement.style.opacity = '1'
-    button_on_table.style.display = 'block'
+    button_turn_on_table.style.display = 'block'
     randomIngles()
 })
 
