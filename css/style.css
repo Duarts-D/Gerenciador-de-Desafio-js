@@ -1,8 +1,10 @@
+
+* {
+    box-sizing: border-box;
+}
 body{
     background-color: black;
-    /* min-height: 95vh; */
     display: flex;
-    /* justify-content: center;  */
     align-items: center;
     flex-direction: column;
     color: white;
@@ -25,6 +27,8 @@ main{
     font-size: 36px;
 
 }
+
+
 
 .titulo{
     font-size: 36px;
@@ -62,6 +66,32 @@ main{
 /* end container_1*/
 
 /* start coontainer_2 */
+.ocultar_container_2{
+    display: none;
+}
+
+.container_2_flex{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.container_2_img_1{
+    opacity: 0.5;
+}
+
+.container_2_img_1:hover, .container_2_img_2:hover{
+    opacity: 1;
+}
+
+
+.container_2_img_2{
+    rotate: 180deg;
+    opacity: 0.5;
+}
+
+
 .container_2{
     border: none;
     border-radius: 10px;
@@ -287,8 +317,6 @@ fieldset p{
     font-size: 24px;
 }
 
-
-
 .div_1_texto{
     display: flex;
     background-color: cornsilk;
@@ -314,10 +342,6 @@ fieldset p{
 }
 
 
-
-
-
-
 img{
     width: 40px;
     height: 50px;
@@ -325,16 +349,20 @@ img{
 }
 
 .div_input{
-    display: flex;
-    height: 50px;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    height: auto;
     align-items: center;
-    justify-content: center;
     width: 100%;
+    padding: 2%;
 }
 
+.div_input_img{
+    height: 40.76px;
+}
+
+
 .input{
-    /* width: 100%; */
-    height: 30px;
     border: 15px solid black;
     text-align: center;
     font-size: 24px;
@@ -532,14 +560,55 @@ caption button:hover{
     .container_1_qtd{
         width: auto;
         opacity: 0.7;
+
     }
     .container_1{
         width: 100%;
     }
+
+    .ocultar_container_2{
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .ocultar_container_2 h1{
+        width: auto;
+        opacity: 0.5;
+        box-shadow: 0px 0px 8px white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .ocultar_container_2 h1:hover{
+        opacity: 1;
+    }
+
+
+    .container_2_flex{
+        flex-direction: column;
+    }
+
+    .container_2_img_2{
+        display: none;
+    }
+
+    .container_2_img_1:hover{
+        opacity: 1;
+    }
+
     .container_2{
         width: auto;
         margin-top: 2%;
+        order: -1;
     }
+
+    .div_input{
+        grid-template-columns: 13% 1fr 20%;
+    }    
+
     main{
         margin-top: 15%;
         width: 100%;

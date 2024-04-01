@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Secret phrase</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,53 +27,78 @@
             </div>
 
         </div>
-        <div class="container_2">
-            <div class="container_2_bloco_1">
-                <div>
-                    <h1 class="text_center">Adicionar nova palavra</h1>
-                    <form method="post" class="form" autocomplete="off">
-                        <label for="" class="form_texto_ingles">Ingles</label>
-                        <input type="text" name="ingles" id="ingles_input" class="form_input_ingles" required>
-                        <span class="error_input_ingles"></span>
-                        <p class="ponto">:</p>
-                        <label for="pt_input" class="form_texto_pt">Portugues</label>
-                        <input type="text" name="pt" id="pt_input" class="form_input_pt" required>
-                        <span class="error_input_pt"></span>
-                        <span class="salvo_com_sucesso" id="sucesso"></span>
-                        <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
-                    </form>
-                </div>
-            <hr>            
-            <div class="div_input_checkbox">
-                <p class="todos" id="my_dic_all">Todas</p>
-                <input type="checkbox" class="input_checkbox" id='button_check'>
-                <label for="button_check" class="div_input_caixa"></label>
-                <p id="my_dic">Somente minhas palavras</p>
-            </div>
-            <fieldset>
-                <legend><button type="button" id="button_alert_dicionario">X</button></legend>
-                <p>Oque vamos praticar?</p>
-            </fieldset>
+        <div class="ocultar_container_2">
+            <h1 >Ocultar</h1>
         </div>
-    </div>
+        <div class="container_2_flex">
+            <img id="container_2_flex_order_img_1" data-rotate-add class="container_2_img_1" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
+            <div class="container_2">
+                <div class="container_2_bloco_1">
+                    <div>
+                        <h1 class="text_center" id="add_title">Adicionar Palavra</h1>
+                        <form method="post" class="form" autocomplete="off">
+                            <label for="ingles_input" class="form_texto_ingles" data-label >Ingles</label>
+                            <input type="text" name="ingles" id="ingles_input" class="form_input_ingles" required>
+                            <span class="error_input_ingles"></span>
+                            <p class="ponto">:</p>
+                            <label for="pt_input" class="form_texto_pt" data-label >Portugues</label>
+                            <input type="text" name="pt" id="pt_input" class="form_input_pt" required>
+                            <span class="error_input_pt"></span>
+                            <span class="salvo_com_sucesso" id="sucesso"></span>
+                            <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
+                        </form>
+                    </div>
+                <hr>    
+                <hr>            
 
+                
+                <div class="div_input_checkbox">
+                    <p class="todos" id="my_dic_all">Todas</p>
+                    <input type="checkbox" class="input_checkbox" id='button_check'>
+                    <label for="button_check" class="div_input_caixa"></label>
+                    <p id="my_dic">Somente minhas palavras</p>
+                </div>
+                <hr>            
+                <div class="div_input_checkbox ordem">
+                    <p class="todos" id="">Aleatorio</p>
+                    <input type="checkbox" class="input_checkbox" id=''>
+                    <label for="" class="div_input_caixa"></label>
+                    <p id="">Sequencial</p>
+                </div>
+                <hr>            
+                <div class="div_input_checkbox ordem">
+                    <p class="todos" id="">Palavras</p>
+                    <input type="checkbox" class="input_checkbox" id=''>
+                    <label for="" class="div_input_caixa"></label>
+                    <p id="">Frases</p>
+                </div>
+
+                <fieldset>
+                    <legend><button type="button" id="button_alert_dicionario">X</button></legend>
+                    <p>Oque vamos praticar?</p>
+                </fieldset>
+                </div>
+            </div>
+            <img id="container_2_flex_order_img_2" data-rotate-add class="container_2_img_2" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
+        </div>
     </section>
     <main>
-    <div class="div_1_texto">
-        <span id="ingles"></span>
-    </div>
-    <div class="div_2_texto">
-        <span id="pt_br"></span>
-        <img src="./img/eyes_is_closed.png" alt="ver" id="img">
-    </div>
-    <div class="div_input">
-        <input class="input" placeholder="Palavra" type="text" id="input"></input>
-        <button type="button" id="resetar" class="button_resetar">Resetar</button>
-    </div>
+        <div class="div_1_texto">
+            <span id="ingles"></span>
+        </div>
+        <div class="div_2_texto">
+            <span id="pt_br"></span>
+            <img src="./img/eyes_is_closed.png" alt="ver" id="img">
+        </div>
+        <div class="div_input">
+                <img class="div_input_img" src="img/seta_white.png">
+            <input class="input" placeholder="Palavra" type="text" id="input"></input>
+            <button type="button" id="resetar" class="button_resetar">Resetar</button>
+        </div>
 
-    <div class="acerto_div">
-        <span id="acerto" class="acerto"></span>
-    </div>
+        <div class="acerto_div">
+            <span id="acerto" class="acerto"></span>
+        </div>
     </main>
     <!-- <div class="div_teste" > -->
     <fieldset class="tabela_fiedset" id="container_table">
