@@ -1,24 +1,25 @@
 import randomIngles from "./main.js";
 
-const buttonSalvar = document.getElementById('button_salvar')
-const inputIngles = document.getElementById('ingles_input')
-const inputPt = document.getElementById('pt_input')
-const error_input_ingles = document.querySelector('.error_input_ingles')
-const error_input_pt = document.querySelector('.error_input_pt')
-const container_2_inputs  = document.querySelector('.container_2_bloco_1')
-const choicesAdd = document.querySelectorAll("[data-rotate-add]")
-const localSaving = {
+const buttonSalvar = document.getElementById('button_salvar');
+const inputIngles = document.getElementById('ingles_input');
+const inputPt = document.getElementById('pt_input');
+const error_input_ingles = document.querySelector('.error_input_ingles');
+const error_input_pt = document.querySelector('.error_input_pt');
+const container_2_inputs  = document.querySelector('.container_2_bloco_1');
+const choicesAdd = document.querySelectorAll("[data-rotate-add]");
+export const localSaving = {
     "phrase":"my_dict_phrase",
     "word":"my_dict_word",
 }
 let dataSavingLocation = localSaving["word"]
 const labelInput = document.querySelectorAll("[data-label]")
 
+
 // change of the saving
 choicesAdd.forEach((e)=>{
     e.addEventListener('click', () =>{
         saveModelControl();
-        addColorSwitch()
+        addColorSwitch();
     })
 })
 
@@ -180,8 +181,8 @@ function changeLocalStorageMode(){
             id += 1
             my_dicionario[id] = new_dict 
         }
-        localStorage.setItem(`id_my_dict_words`, JSON.stringify(id))
-        localStorage.setItem("my_dict_phrase", JSON.stringify(my_dicionario))
+        localStorage.setItem(`id_${localSaving["word"]}`, JSON.stringify(id))
+        localStorage.setItem(localSaving["word"], JSON.stringify(my_dicionario))
         localStorage.setItem("unique", JSON.stringify(true))
     }
 }
