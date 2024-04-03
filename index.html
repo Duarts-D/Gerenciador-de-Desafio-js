@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret phrase</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secret phrase</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
 </head>
-<header>
-    <h1 class="titulo">Ingles</h1>
-</header>
+
 <body>
+    <header>
+        <h1 class="titulo">Ingles</h1>
+    </header>
     <section class="section">
         <div class="container_1">
             <div class="container_1_qtd">
@@ -48,32 +49,33 @@
                             <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
                         </form>
                     </div>
-                <hr>    
-                <hr>            
+                <hr>
+                <div class="container_2_checkbox">
+                    <h3>Escolha como praticar hoje!</h3>
+                    <hr>             
+                    <div class="div_input_checkbox">
+                        <p class="todos first" id="padrao">Padrao</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_location' >
+                        <label for="input_checkbox_location" class="div_input_caixa"></label>
+                        <p id="adicionar">Adicionadas</p>
+                    </div>
+                    <hr>     
+                    <div class="div_input_checkbox ">
+                        <p class="todos first" id="choice_words">Palavras</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_choices'>
+                        <label for="input_checkbox_choices" class="div_input_caixa"></label>
+                        <p id="choice_phrase">Frases</p>
+                    </div>       
+                    <hr>            
+                    <div class="div_input_checkbox ">
+                        <p class="todos first" id="aleatorio">Aleatorio</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_ordem'>
+                        <label for="input_checkbox_ordem" class="div_input_caixa"></label>
+                        <p id="sequencial">Sequencial</p>
+                    </div>
+                </div>  
 
-                
-                <div class="div_input_checkbox">
-                    <p class="todos" id="my_dic_all">Todas</p>
-                    <input type="checkbox" class="input_checkbox" id='button_check'>
-                    <label for="button_check" class="div_input_caixa"></label>
-                    <p id="my_dic">Somente minhas palavras</p>
-                </div>
-                <hr>            
-                <div class="div_input_checkbox ordem">
-                    <p class="todos" id="">Aleatorio</p>
-                    <input type="checkbox" class="input_checkbox" id=''>
-                    <label for="" class="div_input_caixa"></label>
-                    <p id="">Sequencial</p>
-                </div>
-                <hr>            
-                <div class="div_input_checkbox ordem">
-                    <p class="todos" id="">Palavras</p>
-                    <input type="checkbox" class="input_checkbox" id=''>
-                    <label for="" class="div_input_caixa"></label>
-                    <p id="">Frases</p>
-                </div>
-
-                <fieldset>
+                <fieldset class="button_alert">
                     <legend><button type="button" id="button_alert_dicionario">X</button></legend>
                     <p>Oque vamos praticar?</p>
                 </fieldset>
@@ -130,7 +132,7 @@
         <p>Duarts.dev@gmail.com</p>
     </footer>
     <script src="js/main.js" type="module"></script>
-    <script src="js/dicionario.js" type="module"></script>
+    <script src="js/controlModeDicts.js" type="module"></script>
     <script src="js/addDicionario.js" type="module"></script>
     <script src="js/removDicionario.js" type="module"></script>
 

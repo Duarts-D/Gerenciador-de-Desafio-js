@@ -118,18 +118,21 @@ main{
     opacity: 1;
 }
 
-
-
-.div_input_checkbox{
-    display: flex;
-    justify-content: center;
-    column-gap: 15px;
-    align-items: center;
-    padding: 5px;
-    margin-top: 5px;
-    opacity: 0.5;
+.container_2_checkbox{
+    text-align: center;
+}
+.container_2_checkbox h3{
+    opacity: 0.8;    
 }
 
+.div_input_checkbox{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    opacity: 0.5;
+}
+.div_input_checkbox .first{
+    color: red
+}
 .div_input_checkbox:hover{
     opacity: 1;
 }
@@ -296,7 +299,8 @@ fieldset button{
     cursor: pointer;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-}
+    }
+
 fieldset legend{
     text-align: right;
     margin-right: 15px;

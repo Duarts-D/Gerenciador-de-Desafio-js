@@ -13,6 +13,7 @@ export const localSaving = {
 }
 let dataSavingLocation = localSaving["word"]
 const labelInput = document.querySelectorAll("[data-label]")
+import generalControl from "./controlModeDicts.js";
 
 
 // change of the saving
@@ -65,6 +66,9 @@ buttonSalvar.addEventListener('click',(e)=>{
         const valuePT = inputPt.value;
         const handleData = new DataHandler(dataSavingLocation, valueEn, valuePT);
         if (handleData.saveDict()){
+            // get new dict
+            generalControl.getAllParam()
+
             inputIngles.value = '';
             inputPt.value = '';
             const salvo = document.getElementById('sucesso');
