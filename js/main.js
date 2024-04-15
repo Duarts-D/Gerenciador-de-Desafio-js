@@ -257,7 +257,8 @@ function inputValue(event){
 }
 
 function checkAnswer(inputValue){
-    return valuesActive[1].toLowerCase() == inputValue.toLowerCase();
+    const value = valuesActive[1]
+    return value.toLowerCase() == inputValue.toLowerCase();
 }
 
 function eyeClosed(){
