@@ -1,8 +1,9 @@
+* {
+    box-sizing: border-box;
+}
 body{
     background-color: black;
-    /* min-height: 95vh; */
     display: flex;
-    /* justify-content: center;  */
     align-items: center;
     flex-direction: column;
     color: white;
@@ -12,10 +13,8 @@ header{
     margin: 2% 0 0 0 ;
 }
 
-
-main{
+.main{
     display: flex;
-    /* border: 2px solid blue; */
     color: black;
     height: 350px;
     flex-wrap: wrap;
@@ -23,7 +22,6 @@ main{
     width: 50%;
     box-shadow: 0px -7px 13px whitesmoke;
     font-size: 36px;
-
 }
 
 .titulo{
@@ -62,6 +60,32 @@ main{
 /* end container_1*/
 
 /* start coontainer_2 */
+.ocultar_container_2{
+    display: none;
+}
+
+.container_2_flex{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.container_2_img_1{
+    opacity: 0.5;
+}
+
+.container_2_img_1:hover, .container_2_img_2:hover{
+    opacity: 1;
+}
+
+
+.container_2_img_2{
+    rotate: 180deg;
+    opacity: 0.5;
+}
+
+
 .container_2{
     border: none;
     border-radius: 10px;
@@ -88,18 +112,42 @@ main{
     opacity: 1;
 }
 
-
-
-.div_input_checkbox{
-    display: flex;
-    justify-content: center;
-    column-gap: 15px;
-    align-items: center;
-    padding: 5px;
-    margin-top: 5px;
-    opacity: 0.5;
+.container_2_checkbox{
+    text-align: center;
+}
+.container_2_checkbox h3{
+    opacity: 0.8;    
 }
 
+#chekbox-reverse-label{
+    height: 100%;
+    width: 90%;
+    background-image: url(../img/seta_white.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 1s;
+}
+#chekbox-reverse-label:hover{
+    transform: scale(1.2);
+}
+#chekbox-reverse{
+    display: none;
+}
+
+#chekbox-reverse:checked + #chekbox-reverse-label{
+    background-image: url(../img/seta_red_direita.png);
+}
+
+.div_input_checkbox{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    opacity: 0.5;
+}
+.div_input_checkbox .first{
+    color: red
+}
 .div_input_checkbox:hover{
     opacity: 1;
 }
@@ -266,7 +314,8 @@ fieldset button{
     cursor: pointer;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-}
+    }
+
 fieldset legend{
     text-align: right;
     margin-right: 15px;
@@ -288,34 +337,51 @@ fieldset p{
 }
 
 
-
 .div_1_texto{
-    display: flex;
     background-color: cornsilk;
-    justify-content: center;
-    align-items: center;
     width: 50%;
-    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     text-transform: capitalize;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    padding: 5px;
+    padding-top: 10%;
+    text-align: center;
+}
+.div_1_texto span{
+    width: 100%;
 }
 
 .div_2_texto{
-    display: flex;
+    display: grid;
+    grid-template-columns: 90% 1fr;
+    padding: 5px;
+    padding-top: 10%;
+    text-align: center;
     background-color: rgb(11, 131, 81);
-    align-items: center;
     width: 50%;
-    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     text-transform: capitalize;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .div_2_texto span{
     width: 100%;
-    text-align: center;
 }
 
+.animationSpan2{
+    animation: scaleSpan 1s ease-in;
+}
 
-
-
+@keyframes scaleSpan {
+    0%{transform: scale(1.0)}
+    50%{transform: scale(2.0)}
+    100%{transform: scale(1.0)}
+}
 
 
 img{
@@ -325,21 +391,28 @@ img{
 }
 
 .div_input{
-    display: flex;
-    height: 50px;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    height: auto;
     align-items: center;
-    justify-content: center;
     width: 100%;
+    padding: 2%;
+}
+
+.div_input_img{
+    height: 40.76px;
 }
 
 .input{
-    /* width: 100%; */
-    height: 30px;
     border: 15px solid black;
     text-align: center;
     font-size: 24px;
     outline: none;
     color: red;
+}
+
+.input:focus::placeholder{
+    color: transparent;
 }
 
 .input::placeholder{
@@ -357,6 +430,7 @@ img{
     text-align: center;
     height: auto;
 }
+
 .acerto_div{
     width: 100%;
     display: flex;
@@ -377,9 +451,8 @@ img{
 
 .footer{
     text-align: center;
-    margin: 0 30% 0 30%;
-    /* position: fixed; */
-    bottom: 0;
+    margin: 1% 30% 0 30%;
+    color: white;
     box-shadow: 0px -5px 10px whitesmoke;
     padding: 5px;
 }
@@ -388,21 +461,21 @@ img{
 
 ::-webkit-scrollbar {
     width: 10px; /* Largura da barra de rolagem */
-    }
+}
     
-    /* Estiliza o "thumb" (a parte arrastável da barra de rolagem) */
-    ::-webkit-scrollbar-thumb {
+/* Estiliza o "thumb" (a parte arrastável da barra de rolagem) */
+::-webkit-scrollbar-thumb {
     background-color: rgba(255, 0, 0, 0.692); /* Cor de fundo do "thumb" */
     border-top-right-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover{
-        background-color: red;
-    }
-    /* Estiliza a barra de rolagem track (trilha) */
-    ::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: red;
+}
+/* Estiliza a barra de rolagem track (trilha) */
+::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* Cor de fundo da trilha da barra de rolagem */
     border-top-right-radius: 10px;
-    }
+}
 
 
 .tabela_fiedset{
@@ -532,15 +605,62 @@ caption button:hover{
     .container_1_qtd{
         width: auto;
         opacity: 0.7;
+
     }
     .container_1{
         width: 100%;
     }
+
+    .ocultar_container_2{
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .ocultar_container_2 button{
+        background-color: black;
+        color: white;
+        opacity: 0.5;
+    }
+    .ocultar_container_2 button:hover{
+        opacity: 1;
+    }
+
+    .ocultar_container_2 h1{
+        width: auto;
+        opacity: 0.5;
+        box-shadow: 0px 0px 8px white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .ocultar_container_2 h1:hover{
+        opacity: 1;
+    }
+
+
+    .container_2_flex{
+        flex-direction: column;
+    }
+
+    .container_2_img_2{
+        display: none;
+    }
+
+    .container_2_img_1:hover{
+        opacity: 1;
+    }
+
     .container_2{
         width: auto;
         margin-top: 2%;
+        order: -1;
     }
-    main{
+
+    .div_input{
+        grid-template-columns: 13% 1fr 20%;
+    }    
+
+    .main{
         margin-top: 15%;
         width: 100%;
         box-shadow: 0px 0px 8px white;
@@ -550,11 +670,23 @@ caption button:hover{
     }
 
     .div_1_texto{
-        font-size: 24px;
+        font-size: 20px;
+        height: auto;
+        min-height: inherit;
+        max-height: inherit;
+
     }
     .div_2_texto{
-        font-size: 24px;
+        font-size: 20px;
+        height: auto;
+        min-height: inherit;
+        max-height: inherit;
     }
+
+    .div_2_texto img{
+        width: 100%;
+    }
+    
     .input{
         font-size: 16px;
         height: auto;
@@ -564,6 +696,7 @@ caption button:hover{
     .input::placeholder{
         font-size: 16px;
     }
+
     .button_resetar{
         font-size: 16px;
     }
@@ -576,14 +709,12 @@ caption button:hover{
         font-size: 16px;
         transform: rotate(0deg);
     }
-
+    #chekbox-reverse-label{
+        width: 70%;
+    }
     .tabela_fiedset{
         width: 96%;
         z-index: 10;
 
     }
-}
-
-@media screen and (min-width: 1025px)  and (max-width: 2000px){
-    .footer{position: fixed;}
 }

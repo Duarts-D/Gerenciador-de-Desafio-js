@@ -2,80 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secret phrase</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
 </head>
-<header>
-    <h1 class="titulo">Ingles</h1>
-</header>
+
 <body>
+    <header>
+        <h1 class="titulo">Ingles</h1>
+    </header>
     <section class="section">
         <div class="container_1">
             <div class="container_1_qtd">
                 <p class="text_center">Acertos:</p>
-                <span id="Acertos" class="span_section">0</span>
+                <span id="spanInfoNumberHits" class="span_section">0</span>
+            </div>
+            <div class="container_1_qtd">
+                <p class="text_center">Erros:</p>
+                <span id="Errors" class="span_section">0</span>
             </div>
             <div class="container_1_qtd">
                 <p class="text_center">Qtd de acerto seguidos:</p>
-                <span id="quantidade_acerto_seguidos" class="span_section">0</span>
+                <span id="spanInfoNumberConHits" class="span_section">0</span>
             </div>
             <div class="container_1_qtd">
                 <p class="text_center">Recorde:</p>
-                <span id="Recorde" class="span_section"></span>
+                <span id="Record" class="span_section"></span>
             </div>
 
         </div>
-        <div class="container_2">
-            <div class="container_2_bloco_1">
-                <div>
-                    <h1 class="text_center">Adicionar nova palavra</h1>
-                    <form method="post" class="form" autocomplete="off">
-                        <label for="" class="form_texto_ingles">Ingles</label>
-                        <input type="text" name="ingles" id="ingles_input" class="form_input_ingles" required>
-                        <span class="error_input_ingles"></span>
-                        <p class="ponto">:</p>
-                        <label for="pt_input" class="form_texto_pt">Portugues</label>
-                        <input type="text" name="pt" id="pt_input" class="form_input_pt" required>
-                        <span class="error_input_pt"></span>
-                        <span class="salvo_com_sucesso" id="sucesso"></span>
-                        <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
-                    </form>
+        <div class="ocultar_container_2">
+            <button id="hiden_container_2">Ocultar</button>
+        </div>
+        <div class="container_2_flex">
+            <img id="container_2_flex_order_img_1" data-rotate-add class="container_2_img_1" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
+            <div class="container_2">
+                <div class="container_2_bloco_1">
+                    <div>
+                        <h1 class="text_center" id="add_title">Adicionar Palavra</h1>
+                        <form method="post" class="form" autocomplete="off">
+                            <label for="ingles_input" class="form_texto_ingles" data-label >Ingles</label>
+                            <input type="text" name="ingles" id="ingles_input" class="form_input_ingles" required>
+                            <span class="error_input_ingles"></span>
+                            <p class="ponto">:</p>
+                            <label for="pt_input" class="form_texto_pt" data-label >Portugues</label>
+                            <input type="text" name="pt" id="pt_input" class="form_input_pt" required>
+                            <span class="error_input_pt"></span>
+                            <span class="salvo_com_sucesso" id="sucesso"></span>
+                            <button type="submit" class="container_2_bloco_1_button_salvar" id="button_salvar">Salvar</button>
+                        </form>
+                    </div>
+                <hr>
+                <div class="container_2_checkbox">
+                    <h3>Escolha como praticar hoje!</h3>
+                    <hr>             
+                    <div class="div_input_checkbox">
+                        <p class="todos first" id="padrao">Padrao</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_location' >
+                        <label for="input_checkbox_location" class="div_input_caixa"></label>
+                        <p id="adicionar">Adicionadas</p>
+                    </div>
+                    <hr>     
+                    <div class="div_input_checkbox ">
+                        <p class="todos first" id="choice_words">Palavras</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_choices'>
+                        <label for="input_checkbox_choices" class="div_input_caixa"></label>
+                        <p id="choice_phrase">Frases</p>
+                    </div>       
+                    <hr>            
+                    <div class="div_input_checkbox ">
+                        <p class="todos first" id="aleatorio">Aleatorio</p>
+                        <input type="checkbox" class="input_checkbox" id='input_checkbox_ordem'>
+                        <label for="input_checkbox_ordem" class="div_input_caixa"></label>
+                        <p id="sequencial">Sequencial</p>
+                    </div>
+                </div>  
+
+                <fieldset class="button_alert">
+                    <legend><button type="button" id="button_alert_dicionario">X</button></legend>
+                    <p>Oque vamos praticar?</p>
+                </fieldset>
                 </div>
-            <hr>            
-            <div class="div_input_checkbox">
-                <p class="todos" id="my_dic_all">Todas</p>
-                <input type="checkbox" class="input_checkbox" id='button_check'>
-                <label for="button_check" class="div_input_caixa"></label>
-                <p id="my_dic">Somente minhas palavras</p>
             </div>
-            <fieldset>
-                <legend><button type="button" id="button_alert_dicionario">X</button></legend>
-                <p>Oque vamos praticar?</p>
-            </fieldset>
+            <img id="container_2_flex_order_img_2" data-rotate-add class="container_2_img_2" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
         </div>
-    </div>
-
     </section>
-    <main>
-    <div class="div_1_texto">
-        <span id="ingles"></span>
-    </div>
-    <div class="div_2_texto">
-        <span id="pt_br"></span>
-        <img src="./img/eyes_is_closed.png" alt="ver" id="img">
-    </div>
-    <div class="div_input">
-        <input class="input" placeholder="Palavra" type="text" id="input"></input>
-        <button type="button" id="resetar" class="button_resetar">Resetar</button>
-    </div>
+    <main class="main">
+        <div class="div_1_texto">
+            <span id="span_text_first"></span>
+        </div>
+        <div class="div_2_texto">
+            <span id="span_second_text"></span>
+            <img src="./img/eyes_is_closed.png" alt="ver" id="img_eye" data-eye="closed">
+        </div>
+        <div class="div_input">
+            <!-- <img class="chekbox-reverse" src="img/seta_white.png" id="seta_reverse"> -->
+            <input type="checkbox" name="" id="chekbox-reverse">
+            <label for="chekbox-reverse" id="chekbox-reverse-label"></label>
+                <input class="input" placeholder="Palavra" type="text" id="input_text" autocomplete="off"></input>
+            <button type="button" id="reset" class="button_resetar">Resetar</button>
+        </div>
 
-    <div class="acerto_div">
-        <span id="acerto" class="acerto"></span>
-    </div>
+        <div class="acerto_div">
+            <span id="text_result" class="acerto"></span>
+        </div>
+
+
     </main>
-    <!-- <div class="div_teste" > -->
     <fieldset class="tabela_fiedset" id="container_table">
         <legend>Suas Lista de Palavras </legend>
     <table class="tabela_remover">
@@ -98,14 +132,14 @@
     <div class="table_butto_ativar">
         <button id="table_button_ativar">Remover</button>
     </div>
-    <!-- </div> -->
-    
+
     <footer class="footer">
         <h2>Hora de Praticar</h2>
         <p>Duarts.dev@gmail.com</p>
     </footer>
+
     <script src="js/main.js" type="module"></script>
-    <script src="js/dicionario.js" type="module"></script>
+    <script src="js/controlModeDicts.js" type="module"></script>
     <script src="js/addDicionario.js" type="module"></script>
     <script src="js/removDicionario.js" type="module"></script>
 
