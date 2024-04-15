@@ -16,20 +16,24 @@
         <div class="container_1">
             <div class="container_1_qtd">
                 <p class="text_center">Acertos:</p>
-                <span id="Acertos" class="span_section">0</span>
+                <span id="spanInfoNumberHits" class="span_section">0</span>
+            </div>
+            <div class="container_1_qtd">
+                <p class="text_center">Erros:</p>
+                <span id="Errors" class="span_section">0</span>
             </div>
             <div class="container_1_qtd">
                 <p class="text_center">Qtd de acerto seguidos:</p>
-                <span id="quantidade_acerto_seguidos" class="span_section">0</span>
+                <span id="spanInfoNumberConHits" class="span_section">0</span>
             </div>
             <div class="container_1_qtd">
                 <p class="text_center">Recorde:</p>
-                <span id="Recorde" class="span_section"></span>
+                <span id="Record" class="span_section"></span>
             </div>
 
         </div>
         <div class="ocultar_container_2">
-            <h1 >Ocultar</h1>
+            <button id="hiden_container_2">Ocultar</button>
         </div>
         <div class="container_2_flex">
             <img id="container_2_flex_order_img_1" data-rotate-add class="container_2_img_1" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
@@ -84,22 +88,26 @@
             <img id="container_2_flex_order_img_2" data-rotate-add class="container_2_img_2" src="img/seta_white.png" alt="seta branca direcional para escolher qual lugar quer salvar">
         </div>
     </section>
-    <main>
+    <main class="main">
         <div class="div_1_texto">
-            <span id="ingles"></span>
+            <span id="span_text_first"></span>
         </div>
         <div class="div_2_texto">
-            <span id="pt_br"></span>
-            <img src="./img/eyes_is_closed.png" alt="ver" id="img">
+            <span id="span_second_text"></span>
+            <img src="./img/eyes_is_closed.png" alt="ver" id="img_eye" data-eye="closed">
         </div>
         <div class="div_input">
-                <img class="div_input_img" src="img/seta_white.png">
-            <input class="input" placeholder="Palavra" type="text" id="input"></input>
-            <button type="button" id="resetar" class="button_resetar">Resetar</button>
+            <!-- <img class="chekbox-reverse" src="img/seta_white.png" id="seta_reverse"> -->
+            <input type="checkbox" name="" id="chekbox-reverse">
+            <label for="chekbox-reverse" id="chekbox-reverse-label"></label>
+                
+            
+                <input class="input" placeholder="Palavra" type="text" id="input_text" autocomplete="off"></input>
+            <button type="button" id="reset" class="button_resetar">Resetar</button>
         </div>
 
         <div class="acerto_div">
-            <span id="acerto" class="acerto"></span>
+            <span id="text_result" class="acerto"></span>
         </div>
     </main>
     <!-- <div class="div_teste" > -->
@@ -135,6 +143,8 @@
     <script src="js/controlModeDicts.js" type="module"></script>
     <script src="js/addDicionario.js" type="module"></script>
     <script src="js/removDicionario.js" type="module"></script>
+
+
 
 </body>
 </html>

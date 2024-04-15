@@ -1,5 +1,4 @@
-import randomIngles from "./main.js";
-
+import {controltext} from "./main.js";
 const buttonSalvar = document.getElementById('button_salvar');
 const inputIngles = document.getElementById('ingles_input');
 const inputPt = document.getElementById('pt_input');
@@ -13,8 +12,6 @@ export const localSaving = {
 }
 let dataSavingLocation = localSaving["word"]
 const labelInput = document.querySelectorAll("[data-label]")
-import generalControl from "./controlModeDicts.js";
-
 
 // change of the saving
 choicesAdd.forEach((e)=>{
@@ -66,15 +63,14 @@ buttonSalvar.addEventListener('click',(e)=>{
         const valuePT = inputPt.value;
         const handleData = new DataHandler(dataSavingLocation, valueEn, valuePT);
         if (handleData.saveDict()){
-            // get new dict
-            generalControl.getAllParam()
 
             inputIngles.value = '';
             inputPt.value = '';
             const salvo = document.getElementById('sucesso');
             setTimeout(function(){salvo.textContent = ''},5000);
             salvo.textContent = 'Salvo com sucesso';
-            randomIngles();
+            // get new dict
+            controltext.newChanges()
         }
     }
 })
@@ -148,25 +144,11 @@ class DataHandler {
     }
     
     organizeDict(){
-        const pt_ = this.stringForHifen(this.v_pt);
-        const en_ = this.stringForHifen(this.v_ingles);
-        const new_dict = {"pt": this.v_pt,
-                    "en": this.v_ingles,
-                    "pt_": pt_,
-                    "en_": en_
-                    }
+        const new_dict = {
+            "pt": this.v_pt.toLowerCase().trim(),
+            "en": this.v_ingles.toLowerCase().trim(),
+        }
         return new_dict;
-    }
-    
-    stringForHifen(string){
-        const array_string = String(string).split(" ");
-        let finaly_ = "";
-        array_string.forEach(element =>{
-            const qtd = element.length;
-            finaly_ += "-".repeat(qtd) + " ";
-        })
-        finaly_ = finaly_.trim();
-        return finaly_;
     }
 }
 
@@ -188,6 +170,8 @@ function changeLocalStorageMode(){
         localStorage.setItem(`id_${localSaving["word"]}`, JSON.stringify(id))
         localStorage.setItem(localSaving["word"], JSON.stringify(my_dicionario))
         localStorage.setItem("unique", JSON.stringify(true))
+        // new dict
+        controltext.newChanges()
     }
 }
 

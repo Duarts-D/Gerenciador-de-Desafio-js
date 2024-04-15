@@ -1,5 +1,6 @@
 import { localSaving } from "./addDicionario.js";
 import { padraoDict } from "./dict_default.js";
+import {controltext} from "./main.js";
 
 const buttonAlert = document.getElementById("button_alert_dicionario");
 
@@ -24,11 +25,8 @@ choicesAddDict.addEventListener("change",choice_get_localstore);
 class GeneralControl{
     constructor(){
         this.location;
-        this.objeto;
-        this.ordem;
-        this.dict;
-        this.keys;
         this.error;
+        this.dict;
         this.getAllParam();
     }
 
@@ -41,13 +39,11 @@ class GeneralControl{
         }else{
             this.dict = padraoDict;
         }
-        this.makeArraysOfKeys();
     }
 
     checkerChekbox(){
         this.location = dataLocation.checked;
         this.objeto = choicesAddDict.checked;
-        this.ordem = filtroOrdem.checked;
     }
 
     getDict(key){
@@ -60,14 +56,8 @@ class GeneralControl{
         }
     }
 
-    makeArraysOfKeys(){
-        if (this.dict != "error"){
-            this.keys = Object.keys(this.dict);
-        }else{
-            this.keys = "error";
-        }
-    }
 }
+
 const generalControl = new GeneralControl();
 
 function blockedChekbox(boll){
@@ -83,10 +73,10 @@ function textThrough(boll){
 }
 
 function choicesLocation(){
-    generalControl.getAllParam();
+    // new dict
+    controltext.newChanges()
 
     const check = dataLocation.checked;
-
     if (check){
         Color.colors(pAdicionar,pPadrao);
         blockedChekbox(false);
@@ -98,7 +88,8 @@ function choicesLocation(){
 }
 
 function controlaordem(){
-    generalControl.getAllParam();
+    // new dict
+    controltext.newChanges()
 
     const check = filtroOrdem.checked;
 
@@ -110,7 +101,9 @@ function controlaordem(){
 }
 
 function choice_get_localstore(){
-    generalControl.getAllParam();
+    // new dict
+    controltext.newChanges()
+
     const check = choicesAddDict.checked;
 
     if (check){

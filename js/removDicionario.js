@@ -1,4 +1,4 @@
-import randomIngles from "./main.js";
+import { controltext } from "./main.js";
 import { localSaving} from "./addDicionario.js";
 
 const table = document.getElementById('tabela_remover');
@@ -33,7 +33,7 @@ button_turn_off_table.addEventListener('click',()=>{
     container_table.style.display = 'none';
     mainElement.style.opacity = '1';
     button_turn_on_table.style.display = 'block';
-    randomIngles();
+    controltext.newChanges();
 })
 
 

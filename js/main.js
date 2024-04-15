@@ -1,192 +1,299 @@
-const chave = ['day', 'night', 'afternoon', 'morning', 'together', 'theirs', 'his', 'hers', 'he', 'her', 'them',
- 'me', 'my', 'with', 'where', 'how much', 'I want', 'we want', 'how much?', 'seriously', 'parents', 'brother ', 'sister', 'grandmother',
-  'grandfather', 'aunt', 'cousin', 'cousin', 'uncle', 'good', 'bad', 'terrible', 'horrible', 'reading', 'reading', 'writing', 'writing',
-   'running', 'playing'] 
-const dicionario = {'day':'dia', 'night':'noite', 'afternoon':'tarde', 'morning':'manha', 'together':'juntos', 'theirs':'deles', 'his':'dele',
- 'hers':'dela', 'he':'ele', 'her':'ela', 'them':'eles', 'me':'eu', 'my':'meu', 'with':'com', 'where':'onde', 'how much':'quanto', 'I want':'eu quero',
-  'we want':'nos queremos', 'how much?':'quanto?', 'seriously':'serio', 'parents':'pais', 'brother ':'irmão', 'sister':'irmã', 'grandmother':'avó',
-   'grandfather':'avô', 'aunt':'tia', 'cousin':'primo', 'uncle':'tio', 'good':'bom', 'bad':'ruim', 'terrible':'terrivel', 'horrible':'horrivel', 'reading':'lendo', 'writing':'escrevendo', 'running':'correndo', 'playing':'brincando'}
+import generalControl from "./controlModeDicts.js";
 
-let chaveAll
-let dicionarioAll
-let chave_2 
-let dicionario_2
-let disc_userOrPadrao
-let quantidade
-let palavraSecreta
-const spaningles = document.getElementById('ingles')
-const spanpt = document.getElementById('pt_br')
-const input = document.getElementById('input')
-let dicionario_ativo
-const Palvraacertada = document.getElementById('acerto')
-const reset = document.getElementById('resetar')
-const img = document.getElementById('img')
-let eyes = false
+let valuesActive;
+let result = false;
 
-const spanQtdSeg = document.getElementById('quantidade_acerto_seguidos')
-const spanQtdAcertos = document.getElementById('Acertos')
-const spanRecorde = document.getElementById('Recorde')
-let qtdActSeguidos = 0
-let acertou
-let qtdAcertos = 0
+const spanFirstText = document.getElementById('span_text_first');
+const spanSecondText = document.getElementById('span_second_text');
+const inputText = document.getElementById('input_text');
+const spanResultText = document.getElementById('text_result');
+const buttonResetTexts = document.getElementById('reset');
+const buttonEye = document.getElementById('img_eye');
 
-function controleRecorde(){
-    const recorde =  JSON.parse(localStorage.getItem('recorde')) || 0
-    spanRecorde.textContent = recorde
-    if (qtdActSeguidos > recorde ){
-        localStorage.setItem('recorde', JSON.stringify(qtdActSeguidos))
+const spanInfoNumConHits = document.getElementById('spanInfoNumberConHits');
+const spanInfoNumHits = document.getElementById('spanInfoNumberHits');
+const spanInfoRecord = document.getElementById('Record');
+const spanInfoErrors = document.getElementById('Errors');
+
+const buttonHide = document.getElementById("hiden_container_2");
+const buttonChoiceText = document.getElementById("chekbox-reverse");
+
+
+class RecordResultControl{
+    constructor(){
+        this.record = null;
+        this.result = false;
+        this.numHits = 0;
+        this.NumConHits = 0;
+        this.errors = 0;
     }
-}
 
-function controleActSeguidos(){
-    if(acertou){
-        qtdActSeguidos = qtdActSeguidos + 1
-        spanQtdSeg.textContent = qtdActSeguidos
-        acertou = false
-    }else{
-        qtdActSeguidos = 0
-        spanQtdSeg.textContent = qtdActSeguidos
-    }
-}
-
-function controleAcertou(){
-    qtdAcertos = qtdAcertos + 1
-    spanQtdAcertos.textContent = qtdAcertos
-}
-
-
-input.addEventListener('keydown',(event)=>{
-    if (event.key === "Enter"){
-        const valor = event.target.value
-        if (palavraSecreta){
-            event.target.value = ''
-            resetAcerto()
-            palavraSecreta = false
+    fixRecord(boll){
+        if(boll){
+            this.correct();
+            this.result = true;
         }else{
-        if (valor.toLowerCase() === dicionario_ativo[1].toLowerCase()){
-            spanpt.textContent = dicionario_ativo[1]
-            Palvraacertada.style.color = 'white'
-            Palvraacertada.textContent = `${dicionario_ativo[0]} - ${dicionario_ativo[1]}`
-            palavraSecreta = true
-            controleAcertou()
-            acertou = true
-            controleActSeguidos()
-            controleRecorde()
-        }else{
-            controleActSeguidos()
-            Palvraacertada.style.color = 'red'
-            Palvraacertada.textContent = 'Tente Novamente'
+            this.error();
+            this.result = false;
+
         }
     }
+
+
+    correct(){
+        this.controlHit();
+        this.controlNumConHits();
+        this.controlRecord();
     }
-})
 
-function dicionarioTodos(){
-    dicionarioAll = { ...dicionario, ...dicionario_2}
-    chaveAll = [...chave ,...chave_2]
-}
-
-img.addEventListener('click',function (e){
-    if (eyes === false){
-        eyeOpen(e)
-    }else{
-        eyeClosed(e)
+    error(){
+        this.controlError();
+        this.controlNumConHits();
     }
-})
-
-function eyeOpen(e){
-    e.target.src = './img/eyes_is_open.png'
-    eyes = true
-    textEyeMostraSpan()
-}
-
-function eyeClosed(e){
-    if (e instanceof Event){
-        e.target.src = './img/eyes_is_closed.png'
-    }else{
-        e.src = './img/eyes_is_closed.png'
+    //  control
+    controlHit(){
+        this.NumConHits = this.NumConHits + 1;
+        setSpanTextContent(spanInfoNumHits, this.NumConHits);
     }
-    eyes = false
-    textEyeClosedSpan(dicionario_ativo[1])
-}
 
-
-
-function textEyeMostraSpan(){
-    spanpt.textContent = dicionario_ativo[1]
-
-}
-
-export default function randomIngles(){
-    disc_userOrPadrao = JSON.parse(localStorage.getItem('dicionario')) || false
-    dicionario_2 = JSON.parse(localStorage.getItem('my_dicionario')) || {}
-    chave_2 = Object.keys(dicionario_2)
-    dicionarioTodos()
-    if (disc_userOrPadrao){
-        if(Object.keys(dicionario_2).length > 0 ){
-            randomDicionario(dicionario_2)
+    controlNumConHits(){
+        if(this.result){
+            this.numHits = this.numHits + 1;
         }else{
-            spaningles.textContent = 'Nehuma palavra'
-            spanpt.textContent = 'Adicione ou mude para todas'
+            this.numHits = 0;
         }
-    }else{
-        randomDicionario(dicionarioAll)
-    }
-}
-
-function chaves_gerador_contexto(chave_num,dic,num){
-    const key_ingles = chave_num[`${num}`]
-    const key_pt = dic[key_ingles]
-    return [key_ingles,key_pt]
-}
-
-function spanTextContentIngles(ingles){
-    spaningles.textContent = ingles
-}
-
-function textEyeClosedSpan(pt_br){
-    const repeticao = pt_br.length
-    const texto ='-'
-    spanpt.textContent = texto.repeat(repeticao)
-}
-
-
-reset.addEventListener('click',()=>{
-    resetAcerto()
-})
-
-function resetAcerto(){    
-    randomIngles()
-    Palvraacertada.textContent = ''
-    input.value = ''
-    eyeClosed(img)
-    palavraSecreta = false
-
-}
-
-function randomDicionario(dic){
-    if (disc_userOrPadrao){
-        quantidade = Object.keys(dic).length
-    }else{
-        quantidade = chaveAll.length
+        setSpanTextContent(spanInfoNumConHits, this.numHits);
     }
     
-    const numeroAleatorio = Math.floor(Math.random() * quantidade);
+    controlRecord(){
+        if (this.record == null){
+            this.record =  JSON.parse(localStorage.getItem('recorde')) || 0;
+        }
+        if (this.numHits > this.record ){
+            this.record = this.numHits;
+            localStorage.setItem('recorde', JSON.stringify(this.numHits));
+        }
+        setSpanTextContent(spanInfoRecord, this.record);
+    }
 
-    const ab = retornoDicionario(numeroAleatorio)
-    spanTextContentIngles(ab[0])
-    textEyeClosedSpan(ab[1])
-    dicionario_ativo = ab
-}
-
-function retornoDicionario(num){
-    if(disc_userOrPadrao){
-        const dicionario_user = JSON.parse(localStorage.getItem('my_dicionario'))
-        return chaves_gerador_contexto(chave_2,dicionario_user,num)
-    }else{
-        return chaves_gerador_contexto(chaveAll,dicionarioAll,num)
+    controlError(){
+        this.errors = this.errors + 1 ;
+        setSpanTextContent(spanInfoErrors,this.errors);
     }
 }
 
-controleRecorde()
-randomIngles()
+class SetStyleResult{
+    fixStyles(boll){
+        if(boll){
+            this.correctStyles();
+        }else{
+            this.errorStyle();
+            this.ErrorclassStylesAnimation();
+        }
+    }
+    correctStyles(){
+        const text = `${valuesActive[0]} - ${valuesActive[1]}`;
+        setSpanTextContent(spanResultText,text);
+        setSpanColor(spanResultText, "yellow");
+        setSpanColor(spanSecondText, "yellow");
+        eyeOpen();
+    }    
+
+    errorStyle(){
+        setSpanTextContent(spanResultText, "Tente Novamente");
+        setSpanColor(spanSecondText, "red");
+        setSpanColor(spanResultText, "red");
+        
+    }
+
+    ErrorclassStylesAnimation() {
+        spanSecondText.classList.add("animationSpan2");
+        function remove(){
+            spanSecondText.classList.remove("animationSpan2");
+        }
+        setTimeout(remove,1000);
+    }
+
+}
+
+class GeneralControlText{
+    constructor(generalControl){
+        this.moldecontrol = generalControl;
+        this.list_key;
+        this.arrayValues;
+        this.id = 0;
+    }
+
+    getValue(){
+        this.makeArraysOfKeys();
+        this.setOrdem();
+        this.setValue();
+        return this.arrayValues;
+    }
+
+    checkReverseText(){
+        const chekbox = document.getElementById("chekbox-reverse").checked;
+        return chekbox;
+    }
+    
+    setOrdem(){
+        const filterOrdem = document.getElementById("input_checkbox_ordem");
+        this.ordem = filterOrdem.checked;
+    }
+
+    setValue(){
+        const dict_value = this.filterOrdem();
+        let arrayValue = [];
+        arrayValue.push(dict_value["en"]);
+        arrayValue.push(dict_value["pt"]);
+        const chekcReverse = this.checkReverseText();
+        arrayValue = chekcReverse? arrayValue.reverse():arrayValue;
+        this.arrayValues = arrayValue;
+    }
+ 
+    filterOrdem(){
+        const value = this.ordem ? this.sequenceKey():this.randomKey();
+        return value;
+    }    
+ 
+    makeArraysOfKeys(){
+        this.list_key = Object.keys(this.moldecontrol.dict);
+    }
+
+    randomKey(){
+        const amount = this.list_key.length;
+        const randomNum = Math.floor(Math.random() * amount);
+        const key = this.list_key[randomNum];
+        return this.moldecontrol.dict[key];
+    }
+    
+    sequenceKey(){
+        if (this.list_key.length <= this.id){
+            this.id = 0;
+            return newSetupText();
+        }else{
+            const key = this.list_key[this.id];
+            this.id += 1 ;
+            return this.moldecontrol.dict[key];
+        }
+    }
+    newChanges(){
+        generalControl.getAllParam()
+        this.moldecontrol = generalControl
+        starNew();
+    } 
+}
+// Class
+const recordResultControl = new RecordResultControl();
+const setStyleResult = new SetStyleResult();
+const controltext = new GeneralControlText(generalControl);
+
+// Eventos
+buttonChoiceText.addEventListener('click',newSetupText);
+buttonHide.addEventListener('click',controlContainerHiddenAdd);
+inputText.addEventListener('keydown',inputValue);
+buttonResetTexts.addEventListener('click',starNew);
+buttonEye.addEventListener('click',controlEyeImg);
+
+
+function controlEyeImg(evento){
+    const event = evento.target.dataset.eye;
+    event != "open" ? eyeOpen():eyeClosed();
+}
+
+function controlContainerHiddenAdd(e){
+    const text = e.target.textContent;
+    const container = document.querySelector(".container_2_flex");
+    if(text === "Ocultar"){
+        container.style.display = 'none';
+    }else{
+        container.style.display = 'flex';
+    }
+    e.target.textContent = text == "Ocultar"? "Mostra": "Ocultar";
+}
+
+function setSpanTextContent(span,text){
+    span.textContent = text;
+}
+
+function setSpanColor(span,color){
+    span.style.color = color;
+}
+
+function starNew(){
+    newSetupText();
+    setSpanTextContent(spanResultText, '');
+    setSpanColor(spanSecondText, 'black');
+    inputText.value = '';
+    eyeClosed();
+}
+
+function inputValue(event){
+    const event_key = (event.key == "Enter");
+    if (result == true){
+        starNew();
+        result = false;
+    }else{
+        if(event_key && valuesActive){
+            const value = event.target.value.toLowerCase().trim();
+            result = checkAnswer(value);
+            
+            recordResultControl.fixRecord(result);
+            setStyleResult.fixStyles(result);
+    }
+    }
+}
+
+function checkAnswer(inputValue){
+    return valuesActive[1].toLowerCase() == inputValue.toLowerCase();
+}
+
+function eyeClosed(){
+    buttonEye.src = './img/eyes_is_closed.png';
+    buttonEye.dataset.eye = "closed";
+    if(valuesActive){
+        setSpanTextContent(spanSecondText, stringForHifen(valuesActive[1]));
+    }
+}
+
+function eyeOpen(){
+    buttonEye.src = './img/eyes_is_open.png';
+    buttonEye.dataset.eye = "open";
+    if(valuesActive){
+        setSpanTextContent(spanSecondText, valuesActive[1]);
+    }
+}
+
+function setError(error){
+    setSpanTextContent(spanFirstText, error);
+    setSpanTextContent(spanSecondText, error);
+    valuesActive = "";
+}
+
+function newSetupText(){
+    if (generalControl.dict == "error"){
+        setError(generalControl.error);
+    }else {
+        const arryValues = controltext.getValue();
+        valuesActive = arryValues;
+        setSpanTextContent(spanFirstText, valuesActive[0]);
+        setSpanTextContent(spanSecondText, stringForHifen(valuesActive[1]));
+    }
+}
+  
+function stringForHifen(string){
+    const arrayString = String(string).split(" ");
+    let finaly = "";
+    arrayString.forEach(element =>{
+        const qtd = element.length;
+        finaly += "-".repeat(qtd) + " ";
+    })
+    finaly = finaly.trim();
+    return finaly;
+}
+
+recordResultControl.controlRecord();
+newSetupText();
+
+
+export {controltext};

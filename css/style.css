@@ -15,7 +15,7 @@ header{
 }
 
 
-main{
+.main{
     display: flex;
     /* border: 2px solid blue; */
     color: black;
@@ -123,6 +123,26 @@ main{
 }
 .container_2_checkbox h3{
     opacity: 0.8;    
+}
+
+#chekbox-reverse-label{
+    height: 100%;
+    width: 90%;
+    background-image: url(../img/seta_white.png);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 1s;
+}
+#chekbox-reverse-label:hover{
+    transform: scale(1.2);
+}
+#chekbox-reverse{
+    display: none;
+}
+
+#chekbox-reverse:checked + #chekbox-reverse-label{
+    background-image: url(../img/seta_red_direita.png);
 }
 
 .div_input_checkbox{
@@ -321,28 +341,51 @@ fieldset p{
     font-size: 24px;
 }
 
+
 .div_1_texto{
-    display: flex;
     background-color: cornsilk;
-    justify-content: center;
-    align-items: center;
     width: 50%;
-    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     text-transform: capitalize;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    padding: 5px;
+    padding-top: 10%;
+    text-align: center;
+}
+.div_1_texto span{
+    width: 100%;
 }
 
 .div_2_texto{
-    display: flex;
+    display: grid;
+    grid-template-columns: 90% 1fr;
+    padding: 5px;
+    padding-top: 10%;
+    text-align: center;
     background-color: rgb(11, 131, 81);
-    align-items: center;
     width: 50%;
-    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     text-transform: capitalize;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .div_2_texto span{
     width: 100%;
-    text-align: center;
+}
+
+.animationSpan2{
+    animation: scaleSpan 1s ease-in;
+}
+
+@keyframes scaleSpan {
+    0%{transform: scale(1.0)}
+    50%{transform: scale(3.0)}
+    100%{transform: scale(1.0)}
 }
 
 
@@ -372,6 +415,10 @@ img{
     font-size: 24px;
     outline: none;
     color: red;
+}
+
+.input:focus::placeholder{
+    color: transparent;
 }
 
 .input::placeholder{
@@ -572,10 +619,16 @@ caption button:hover{
 
     .ocultar_container_2{
         display: block;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
         margin-top: 5px;
+    }
+    .ocultar_container_2 button{
+        background-color: black;
+        color: white;
+        opacity: 0.5;
+    }
+    .ocultar_container_2 button:hover{
+        opacity: 1;
     }
 
     .ocultar_container_2 h1{
@@ -613,7 +666,7 @@ caption button:hover{
         grid-template-columns: 13% 1fr 20%;
     }    
 
-    main{
+    .main{
         margin-top: 15%;
         width: 100%;
         box-shadow: 0px 0px 8px white;
@@ -623,10 +676,14 @@ caption button:hover{
     }
 
     .div_1_texto{
-        font-size: 24px;
+        font-size: 20px;
     }
     .div_2_texto{
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .div_2_texto img{
+        width: 100%;
     }
     .input{
         font-size: 16px;
