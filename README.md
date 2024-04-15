@@ -18,20 +18,11 @@ e um sistema de agrupamento de palavra pre-salva com as palavra do usuario adici
 # Layouts
 
 ## Layout Mobile
-![mobile 1](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutMobile.PNG)
-![mobile 2](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutMobileDel.PNG)
-
-## Layout Tablet
-
-![Tablet 1](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutTablete.PNG)
-
-![Tablet 2](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutTableteDel.PNG)
+![mobile 1](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutMobile-2.0.jpg)
 
 ## Layout Desktop
 
-![desktop 1](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutDesktop.PNG)
-
-![desktop 2](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutDesktopDel.PNG)
+![desktop 1](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/img/layoutWeb-2.0..jpg)
 
 
 # Tecnologias utilizadas
