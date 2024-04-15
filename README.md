@@ -1,4 +1,4 @@
-# Palavra-Secretas-JavaScript
+# Gerenciador-de-Desafio-js
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Duarts-D/Palavra-Secretas-js/blob/main/LICENSE)
 
