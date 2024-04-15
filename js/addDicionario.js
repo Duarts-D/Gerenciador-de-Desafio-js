@@ -163,15 +163,14 @@ function changeLocalStorageMode(){
         for (let key in my_dicionario){
             const v_ingles = key
             const v_pt = my_dicionario[key]
-            const new_dict = organizeDict(v_ingles, v_pt)
+            const data = new DataHandler(null,v_ingles, v_pt)
+            const new_dict = data.organizeDict()
             id += 1
             my_dicionario[id] = new_dict 
         }
         localStorage.setItem(`id_${localSaving["word"]}`, JSON.stringify(id))
         localStorage.setItem(localSaving["word"], JSON.stringify(my_dicionario))
         localStorage.setItem("unique", JSON.stringify(true))
-        // new dict
-        controltext.newChanges()
     }
 }
 
