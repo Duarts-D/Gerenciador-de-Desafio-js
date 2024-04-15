@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -14,10 +13,8 @@ header{
     margin: 2% 0 0 0 ;
 }
 
-
 .main{
     display: flex;
-    /* border: 2px solid blue; */
     color: black;
     height: 350px;
     flex-wrap: wrap;
@@ -25,10 +22,7 @@ header{
     width: 50%;
     box-shadow: 0px -7px 13px whitesmoke;
     font-size: 36px;
-
 }
-
-
 
 .titulo{
     font-size: 36px;
@@ -129,8 +123,9 @@ header{
     height: 100%;
     width: 90%;
     background-image: url(../img/seta_white.png);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
     transition: transform 1s;
 }
@@ -384,7 +379,7 @@ fieldset p{
 
 @keyframes scaleSpan {
     0%{transform: scale(1.0)}
-    50%{transform: scale(3.0)}
+    50%{transform: scale(2.0)}
     100%{transform: scale(1.0)}
 }
 
@@ -407,7 +402,6 @@ img{
 .div_input_img{
     height: 40.76px;
 }
-
 
 .input{
     border: 15px solid black;
@@ -436,6 +430,7 @@ img{
     text-align: center;
     height: auto;
 }
+
 .acerto_div{
     width: 100%;
     display: flex;
@@ -456,9 +451,8 @@ img{
 
 .footer{
     text-align: center;
-    margin: 0 30% 0 30%;
-    /* position: fixed; */
-    bottom: 0;
+    margin: 1% 30% 0 30%;
+    color: white;
     box-shadow: 0px -5px 10px whitesmoke;
     padding: 5px;
 }
@@ -467,21 +461,21 @@ img{
 
 ::-webkit-scrollbar {
     width: 10px; /* Largura da barra de rolagem */
-    }
+}
     
-    /* Estiliza o "thumb" (a parte arrastável da barra de rolagem) */
-    ::-webkit-scrollbar-thumb {
+/* Estiliza o "thumb" (a parte arrastável da barra de rolagem) */
+::-webkit-scrollbar-thumb {
     background-color: rgba(255, 0, 0, 0.692); /* Cor de fundo do "thumb" */
     border-top-right-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover{
-        background-color: red;
-    }
-    /* Estiliza a barra de rolagem track (trilha) */
-    ::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: red;
+}
+/* Estiliza a barra de rolagem track (trilha) */
+::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* Cor de fundo da trilha da barra de rolagem */
     border-top-right-radius: 10px;
-    }
+}
 
 
 .tabela_fiedset{
@@ -677,14 +671,22 @@ caption button:hover{
 
     .div_1_texto{
         font-size: 20px;
+        height: auto;
+        min-height: inherit;
+        max-height: inherit;
+
     }
     .div_2_texto{
         font-size: 20px;
+        height: auto;
+        min-height: inherit;
+        max-height: inherit;
     }
 
     .div_2_texto img{
         width: 100%;
     }
+    
     .input{
         font-size: 16px;
         height: auto;
@@ -694,6 +696,7 @@ caption button:hover{
     .input::placeholder{
         font-size: 16px;
     }
+
     .button_resetar{
         font-size: 16px;
     }
@@ -706,14 +709,12 @@ caption button:hover{
         font-size: 16px;
         transform: rotate(0deg);
     }
-
+    #chekbox-reverse-label{
+        width: 70%;
+    }
     .tabela_fiedset{
         width: 96%;
         z-index: 10;
 
     }
-}
-
-@media screen and (min-width: 1025px)  and (max-width: 2000px){
-    .footer{position: fixed;}
 }

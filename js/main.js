@@ -195,6 +195,18 @@ inputText.addEventListener('keydown',inputValue);
 buttonResetTexts.addEventListener('click',starNew);
 buttonEye.addEventListener('click',controlEyeImg);
 
+inputText.addEventListener('focus',hidenEmail)
+inputText.addEventListener('blur',nothidenEmail)
+
+
+function hidenEmail(){
+    const boxEmail = document.getElementsByClassName("footer")[0]
+    boxEmail.style.opacity = "0.2"
+}
+function nothidenEmail(){
+    const boxEmail = document.getElementsByClassName("footer")[0]
+    boxEmail.style.opacity = "1.0"
+}
 
 function controlEyeImg(evento){
     const event = evento.target.dataset.eye;
