@@ -29,7 +29,7 @@ function addColorSwitch(){
         }else{
             color = "white"
         }
-        e.src = `/img/seta_${color}.png`
+        e.src = `./img/seta_${color}.png`
         labelInput.forEach((e)=>{
             e.style.color = color
         })
